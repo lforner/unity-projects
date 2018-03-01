@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 8
+  serializedVersion: 9
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -39,6 +39,7 @@ RenderSettings:
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
   m_IndirectSpecularColor: {r: 0.18263784, g: 0.2283489, b: 0.30714524, a: 1}
+  m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -54,11 +55,10 @@ LightmapSettings:
     m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
-    serializedVersion: 9
+    serializedVersion: 10
     m_Resolution: 2
     m_BakeResolution: 40
-    m_TextureWidth: 1024
-    m_TextureHeight: 1024
+    m_AtlasSize: 1024
     m_AO: 0
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
@@ -330,6 +330,7 @@ GameObject:
   - component: {fileID: 432935342}
   - component: {fileID: 432935341}
   - component: {fileID: 432935343}
+  - component: {fileID: 432935344}
   m_Layer: 0
   m_Name: CM between rows
   m_TagString: Untagged
@@ -393,6 +394,21 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &432935344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 432935340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 360979aafebd332448626a2236bafdb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Profile: {fileID: 11400000, guid: 2ecf66eeea7da644284de3b7e32fc16a, type: 2}
+  m_FocusTracksTarget: 1
+  m_FocusOffset: 27.15
 --- !u!1 &563272964
 GameObject:
   m_ObjectHideFlags: 3
@@ -549,7 +565,7 @@ PlayableDirector:
     value: {fileID: 1503916975}
   - key: {fileID: 0}
     value: {fileID: 1503916968}
-  - key: {fileID: 114475972851071166, guid: d526390d662abe741a74b721825f9a06, type: 2}
+  - key: {fileID: 0}
     value: {fileID: 1316268553}
   - key: {fileID: 0}
     value: {fileID: 1316268553}
@@ -559,10 +575,17 @@ PlayableDirector:
     value: {fileID: 1996578146}
   - key: {fileID: 114704897074161938, guid: d526390d662abe741a74b721825f9a06, type: 2}
     value: {fileID: 1943861063}
+  - key: {fileID: 0}
+    value: {fileID: 1316268553}
+  - key: {fileID: 114944307047781632, guid: d526390d662abe741a74b721825f9a06, type: 2}
+    value: {fileID: 1316268553}
   m_ExposedReferences:
     m_References:
     - d6910aad1fae38e46b1590adfe3aeaef: {fileID: 1316268554}
+    - 34af1c5cc86c092488c8e167cf7cdeaa: {fileID: 0}
     - 03515f215fd6c814fbf4c04c3228561d: {fileID: 1943861064}
+    - 2dcd4dee363e76741ae8380b81b95572: {fileID: 1316268554}
+    - f374398f742be1d46a0cc5b92d35a11f: {fileID: 1316268554}
     - 82a4c9212418bc74dad503d4ad533e5c: {fileID: 432935341}
 --- !u!4 &859893829
 Transform:
@@ -900,6 +923,7 @@ GameObject:
   - component: {fileID: 1316268555}
   - component: {fileID: 1316268554}
   - component: {fileID: 1316268556}
+  - component: {fileID: 1316268557}
   m_Layer: 0
   m_Name: CM top zoom out
   m_TagString: Untagged
@@ -939,7 +963,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1316268553}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 45.94, z: 0}
+  m_LocalPosition: {x: 0, y: 119.999985, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 282839876}
@@ -963,6 +987,21 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1316268557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1316268553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 360979aafebd332448626a2236bafdb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Profile: {fileID: 11400000, guid: 2ecf66eeea7da644284de3b7e32fc16a, type: 2}
+  m_FocusTracksTarget: 1
+  m_FocusOffset: 0
 --- !u!1 &1332508519
 GameObject:
   m_ObjectHideFlags: 0
@@ -1171,6 +1210,7 @@ GameObject:
   - component: {fileID: 1503916969}
   - component: {fileID: 1503916973}
   - component: {fileID: 1503916975}
+  - component: {fileID: 1503916974}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1234,7 +1274,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1503916968}
-  m_LocalRotation: {x: 0.70618224, y: 0, z: 0, w: 0.70803016}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1253,6 +1293,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: 2ecf66eeea7da644284de3b7e32fc16a, type: 2}
+--- !u!114 &1503916974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1503916968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 360979aafebd332448626a2236bafdb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Profile: {fileID: 0}
+  m_FocusTracksTarget: 0
+  m_FocusOffset: 0
 --- !u!114 &1503916975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1471,6 +1525,7 @@ GameObject:
   - component: {fileID: 1943861065}
   - component: {fileID: 1943861064}
   - component: {fileID: 1943861066}
+  - component: {fileID: 1943861067}
   m_Layer: 0
   m_Name: CM top rotating
   m_TagString: Untagged
@@ -1534,6 +1589,21 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1943861067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1943861063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 360979aafebd332448626a2236bafdb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Profile: {fileID: 11400000, guid: 2ecf66eeea7da644284de3b7e32fc16a, type: 2}
+  m_FocusTracksTarget: 1
+  m_FocusOffset: 0
 --- !u!1 &1996578146
 GameObject:
   m_ObjectHideFlags: 0
@@ -1581,6 +1651,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2046750526
 GameObject:
   m_ObjectHideFlags: 0
@@ -1860,6 +1931,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 3965b81fb70e6e64f93be8f074f1bb66, type: 2}
   m_StaticBatchInfo:
@@ -1910,54 +1982,69 @@ AudioSource:
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 2
+    - serializedVersion: 3
       time: 0
       value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-    - serializedVersion: 2
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
       time: 1
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   panLevelCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 2
+    - serializedVersion: 3
       time: 0
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 2
+    - serializedVersion: 3
       time: 0
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 2
+    - serializedVersion: 3
       time: 0
       value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
@@ -1993,6 +2080,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 1d85041d1d11cc146aafec6076388d44, type: 2}
   m_StaticBatchInfo:
