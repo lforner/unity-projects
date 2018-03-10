@@ -1897,14 +1897,11 @@ MonoBehaviour:
   loudnessHeight: 20
   loudnessRadius: 8
   spectrumDivider: 64
-  cameraRadius: 75
-  cameraAngle: 3
   updateStep: 0.05
   sampleDataLength: 8192
   sampleDataLengthDisplayed: 0
   lerpRatio: 30
   loudnessMini: 0
-  mainCameraTransform: {fileID: 1503916972}
 --- !u!4 &2107420215
 Transform:
   m_ObjectHideFlags: 0
