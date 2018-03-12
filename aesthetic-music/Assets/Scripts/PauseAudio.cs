@@ -7,16 +7,20 @@ using UnityEngine.UI;
 
 public class PauseAudio : MonoBehaviour
 {
-    public AudioSource audioSource;
+    public GameObject GenerationPlaceHolder;
     public PlayableDirector director;
 
-    private Button button;
+    Button button;
+    AudioSource audioSource;
+    GenerateMeshes generationScript;
 
     // Use this for initialization
     void Start()
     {
         button = GetComponent<Button>();
         button.onClick.AddListener(delegate { pauseAudio(); });
+        audioSource = GenerationPlaceHolder.GetComponent<AudioSource>();
+        generationScript = GenerationPlaceHolder.GetComponent<GenerateMeshes>();
     }
 
     private void pauseAudio()
@@ -36,6 +40,8 @@ public class PauseAudio : MonoBehaviour
             playable.SetSpeed(0);
         else
             playable.SetSpeed(1);
+
+        generationScript.isPlaying = !generationScript.isPlaying;
     }
 
     // Update is called once per frame

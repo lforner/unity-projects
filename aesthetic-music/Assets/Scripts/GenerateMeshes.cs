@@ -16,6 +16,9 @@ public class GenerateMeshes : MonoBehaviour
     public float lerpRatio = 30f;
     public float loudnessMini = 1f;
 
+    [HideInInspector]
+    public bool isPlaying = true;
+
     Mesh mesh;
     List<Vector3> vertices;
     List<int> triangles;
@@ -38,41 +41,44 @@ public class GenerateMeshes : MonoBehaviour
 
     void Update()
     {
-        currentUpdateTime += Time.deltaTime;
-        vertices = new List<Vector3>();
-        triangles = new List<int>();
-        trianglesIndex = 0;
-
-        if (currentUpdateTime >= updateStep)
+        if (isPlaying)
         {
-            currentUpdateTime = 0f;
-            float[] spectrum = new float[sampleDataLength];
+            currentUpdateTime += Time.deltaTime;
+            vertices = new List<Vector3>();
+            triangles = new List<int>();
+            trianglesIndex = 0;
 
-            audioSource.GetSpectrumData(spectrum, 0, FFTWindow.Rectangular);
-
-            for (int i = 1; i < spectrum.Length / spectrumDivider - 1; i++)
+            if (currentUpdateTime >= updateStep)
             {
-                prevSamples[i] = samples[i];
-                samples[i] = spectrum[i] * loudnessHeight;
-            }
-        }
+                currentUpdateTime = 0f;
+                float[] spectrum = new float[sampleDataLength];
 
-        for (int i = 1; i < samples.Length / spectrumDivider - 1; i++)
-        {
-            float loudness = Mathf.Lerp(prevSamples[i], samples[i], currentUpdateTime * lerpRatio);
-            if (loudness >= loudnessMini)
-            {
-                for (int j = 0; j < arcsCount; j++)
+                audioSource.GetSpectrumData(spectrum, 0, FFTWindow.Rectangular);
+
+                for (int i = 1; i < spectrum.Length / spectrumDivider - 1; i++)
                 {
-                    GenerateMesh(Vector3.forward * radius * 2 * i * Mathf.Cos(2f * Mathf.PI / arcsCount * j) + Vector3.left * radius * 2 * i * Mathf.Sin(2f * Mathf.PI / arcsCount * j), loudness);
+                    prevSamples[i] = samples[i];
+                    samples[i] = spectrum[i] * loudnessHeight;
                 }
             }
-        }
 
-        mesh.Clear();
-        mesh.vertices = vertices.ToArray();
-        mesh.triangles = triangles.ToArray();
-        mesh.RecalculateNormals();
+            for (int i = 1; i < samples.Length / spectrumDivider - 1; i++)
+            {
+                float loudness = Mathf.Lerp(prevSamples[i], samples[i], currentUpdateTime * lerpRatio);
+                if (loudness >= loudnessMini)
+                {
+                    for (int j = 0; j < arcsCount; j++)
+                    {
+                        GenerateMesh(Vector3.forward * radius * 2 * i * Mathf.Cos(2f * Mathf.PI / arcsCount * j) + Vector3.left * radius * 2 * i * Mathf.Sin(2f * Mathf.PI / arcsCount * j), loudness);
+                    }
+                }
+            }
+
+            mesh.Clear();
+            mesh.vertices = vertices.ToArray();
+            mesh.triangles = triangles.ToArray();
+            mesh.RecalculateNormals();
+        }
     }
 
     void GenerateMesh(Vector3 startPosition, float heightRatio)

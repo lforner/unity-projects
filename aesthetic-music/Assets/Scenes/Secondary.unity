@@ -1809,7 +1809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c5928ea7e0a1ad4a8524bac28cc9871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 2107420217}
+  GenerationPlaceHolder: {fileID: 2107420212}
   director: {fileID: 859893828}
 --- !u!1 &2084729658
 GameObject:
@@ -1892,7 +1892,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   height: 2
   radius: 1
-  edgesCount: 16
+  edgesCount: 8
   arcsCount: 8
   loudnessHeight: 20
   loudnessRadius: 8
@@ -1902,6 +1902,7 @@ MonoBehaviour:
   sampleDataLengthDisplayed: 0
   lerpRatio: 30
   loudnessMini: 0
+  isPlaying: 1
 --- !u!4 &2107420215
 Transform:
   m_ObjectHideFlags: 0
